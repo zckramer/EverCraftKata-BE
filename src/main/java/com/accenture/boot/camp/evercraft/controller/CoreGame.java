@@ -16,8 +16,8 @@ public class CoreGame {
     };
 
     @GetMapping("/person")
-    public String getHelloName(@RequestParam("name") String name){
-        if(name.isBlank()) {
+    public String getHelloName(@RequestParam(required = false) String name){
+        if(name == null || name.isBlank()) {
             return "Hello, Person!";
         } else {
             return ("Hello, " + name + "!");
