@@ -10,16 +10,31 @@ public class TargetAction {
     protected CharacterSheet target;
     protected int damage;
 
+    /**
+     *
+     * @param subject
+     * @param target
+     */
     public TargetAction(CharacterSheet subject, CharacterSheet target) {
         setSubject(subject);
         setTarget(target);
         setDamage(1);
     }
 
+    /**
+     *
+     * @param dieRoll
+     * @return
+     */
     public boolean isSuccessful(int dieRoll) {
         return getSubject().roll(dieRoll) >= getTarget().getArmorClass();
     }
 
+    /**
+     *
+     * @param dieRoll
+     * @return
+     */
     public int dealDamage(int dieRoll) {
         if(dieRoll == 20) {
             setDamage(this.damage * 2);

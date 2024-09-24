@@ -12,6 +12,11 @@ public class CharacterSheet {
     protected int armorClass;
     protected int hitPoints;
 
+    /**
+     *
+     * @param name
+     * @param alignment
+     */
     public CharacterSheet(String name, String alignment) {
         setName(name);
         setAlignment(alignment);
@@ -19,7 +24,11 @@ public class CharacterSheet {
         setHitPoints(5);
     }
 
-
+    /**
+     *
+     * @param dieNumber
+     * @return
+     */
     public int roll(int dieNumber) {
         if (dieNumber >= 1 && dieNumber <= 20) {
             return dieNumber;
@@ -28,10 +37,18 @@ public class CharacterSheet {
         }
     }
 
+    /**
+     *
+     * @param damage
+     */
     public void takeDamage(int damage) {
         setHitPoints(getHitPoints() - damage);
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getIsAlive(){
         return getHitPoints() > 0;
     }
