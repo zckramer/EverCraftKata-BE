@@ -11,6 +11,7 @@ public class CharacterSheet {
     protected String alignment;
     protected int armorClass;
     protected int hitPoints;
+    protected boolean isNpc;
 
     /**
      *

@@ -33,32 +33,32 @@ class EvercraftApplicationTests {
         targetCharacter = new CharacterSheet("Kefka", "Evil");
     }
 
-//    @Test
-//    void person_endpoint_will_default_name_to_person_if_a_name_is_not_provided_as_a_request_param() throws Exception
-//    {
-//        // given the user does not provide a name in the request parameters
-//
-//        // when we call the endpoint
-//        MvcResult result = mvc.perform(get("/person")).andReturn();
-//        // then the endpoint greets us as "World"
-//        Assertions.assertEquals(200, result.getResponse().getStatus());
-//        Assertions.assertEquals("Hello, World", result.getResponse().getContentAsString());
-//    }
-//
-//    @Test
-//    void person_endpoint_will_greet_you_by_your_first_name_if_provided() throws Exception
-//    {
-//        // given the user provides their name in the request parameter
-//        String name = "Asong";
-//
-//        // when we call the endpoint
-//        MvcResult result = mvc.perform(get("/person?name="+name)).andReturn();
-//
-//        // then the endpoint greets us by name
-//        Assertions.assertEquals(200, result.getResponse().getStatus());
-//        Assertions.assertEquals("Hello, " + name , result.getResponse().getContentAsString());
-//
-//    }
+    @Test
+    void person_endpoint_will_default_name_to_person_if_a_name_is_not_provided_as_a_request_param() throws Exception
+    {
+        // given the user does not provide a name in the request parameters
+
+        // when we call the endpoint
+        MvcResult result = mvc.perform(get("/person")).andReturn();
+        // then the endpoint greets us as "World"
+        Assertions.assertEquals(200, result.getResponse().getStatus());
+        Assertions.assertEquals("Hello, World", result.getResponse().getContentAsString());
+    }
+
+    @Test
+    void person_endpoint_will_greet_you_by_your_first_name_if_provided() throws Exception
+    {
+        // given the user provides their name in the request parameter
+        String name = "Asong";
+
+        // when we call the endpoint
+        MvcResult result = mvc.perform(get("/person?name="+name)).andReturn();
+
+        // then the endpoint greets us by name
+        Assertions.assertEquals(200, result.getResponse().getStatus());
+        Assertions.assertEquals("Hello, " + name , result.getResponse().getContentAsString());
+
+    }
 
     @Test
     void new_character_possesses_attributes_with_default_values() throws Exception
@@ -180,7 +180,6 @@ class EvercraftApplicationTests {
     void target_character_dies_when_hit_points_is_zero() throws Exception
     {
         // given a character
-
         // when the character's hit point is zero
         int health = targetCharacter.getHitPoints();
         targetCharacter.takeDamage(health);
