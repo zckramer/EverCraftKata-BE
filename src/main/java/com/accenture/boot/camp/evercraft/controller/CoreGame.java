@@ -28,6 +28,11 @@ public class CoreGame {
     public CharacterSheetEntity getCharacterById(@RequestParam Integer characterId) {
         return characterSheetRepository.findById(characterId).get();
     }
+
+    @GetMapping("/character")
+    public CharacterSheetEntity getCharacterByName(@RequestParam String characterName) {
+        return characterSheetRepository.findByName(characterName);
+    }
 };
 
 //    @GetMapping("/newBattle")
