@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:5173/")
 public class CoreGame {
@@ -24,6 +26,11 @@ public class CoreGame {
         return new CharacterSheet(characterName, alignment);
     }
 
+    @GetMapping("/getAllCharacters")
+    public Iterable<CharacterSheetEntity> getAllCharacters() {
+        return  characterSheetRepository.findAll();
+    }
+
     @GetMapping("/getCharacter")
     public CharacterSheetEntity getCharacterById(@RequestParam Integer characterId) {
         return characterSheetRepository.findById(characterId).get();
@@ -33,6 +40,8 @@ public class CoreGame {
     public CharacterSheetEntity getCharacterByName(@RequestParam String characterName) {
         return characterSheetRepository.findByName(characterName);
     }
+
+
 };
 
 //    @GetMapping("/newBattle")
